@@ -14,7 +14,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>uk.ac.cam.caret.oae</groupId>
-  <artifactId>uk.ac.cam.ucamux</artifactId>
+  <artifactId>uk.ac.cam.caret.oae.ucamux</artifactId>
   <packaging>bundle</packaging>
   <version>0.1-SNAPSHOT</version>
   <name>UCam UX Loader</name>

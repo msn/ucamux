@@ -1,0 +1,24 @@
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/devwidgets/acceptterms/css/acceptterms.css"/>
+
+<!-- ERROR MESSAGES -->
+<div style="display:none">
+    <div id="acceptterms_accepted">__MSG__TERMS_ACCEPTED__.</div>
+    <div id="acceptterms_not_accepted">__MSG__TERMS_NOT_ACCEPTEDD__.</div>
+</div>
+
+<!-- DIALOG -->
+<div class="s3d-dialog s3d-dialog-container" id="acceptterms_dialog">
+    <h1 class="s3d-dialog-header">__MSG__ACCEPT_TERMSTITLE__</h1>
+    <form id="acceptterms_form" method="post" action="#">
+        <h4>__MSG__PLEASE_ACCEPT_TERMS_AND_CONDITIONS__</h4>
+        <span>__MSG__TERMS_AND_CONDITIONS__</span>
+        <div id="acceptterms_error_container" style="display:none;"><!-- --></div>
+        <div class="acceptterms_buttons">
+            <button type="button" class="s3d-button s3d-overlay-button" id="acceptterms_action_accept">__MSG__ACCEPT_TERMS__</button>
+        </div>
+    </form>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/devwidgets/acceptterms/javascript/acceptterms.js"></script>

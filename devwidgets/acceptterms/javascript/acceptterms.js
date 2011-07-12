@@ -57,6 +57,8 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         var $acceptterms_form = $("#acceptterms_form", $rootel);
         var $acceptterms_form_heading = $("h4:eq(0)", $acceptterms_form);
         var $acceptterms_form_note = $("span:eq(0)", $acceptterms_form);
+        var $acceptterms_gn = $("#acceptterms_gn", $rootel);
+        var $acceptterms_sn = $("#acceptterms_sn", $rootel);
 
         // Messages
         var $acceptterms_accepted = $("#acceptterms_accepted", $rootel);
@@ -72,17 +74,28 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
          */
         var addBinding = function(){
 
+
+            // bind to changed events for the user data flag to record if the use changed the data.
+            $acceptterms_gn = $($acceptterms_gn);
+            $acceptterms_sn = $($acceptterms_sn);
+            changedUserData = "unchanged";
+            $acceptterms_gn.unbind("change").bind("change", function() {
+                        changedUserData = "updated";
+            });
+            $acceptterms_sn.unbind("change").bind("change", function() {
+                        changedUserData = "updated";
+            });
+
             // Reinitialise the jQuery selector
             $acceptterms_action_accept = $($acceptterms_action_accept.selector);
 
             // Add binding to the accept button
             $acceptterms_action_accept.unbind("click").bind("click", function () {
-                var batchRequests = [];
                 $.ajax({
-                     url: "/system/userManager/user/"+sakai.data.me.user.userid+".update.html",
+                     url: "/system/ucam/acceptterms?"+changedUserData,
                      type: "POST",
-                     data: {"hasacceptedterms" : true,
-                            "whenacceptedterms" : new Date().toString()},
+                     data: {"gn" : $acceptterms_gn.val(),
+                            "sn" : $acceptterms_sn.val()},
                      success : function(data) {
                             sakai.api.Util.notification.show($acceptterms_accepted.html(),
                                 sakai.api.i18n.Widgets.getValueForKey("acceptterms","","TERMS_ACCEPTED"));
@@ -112,6 +125,32 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         }; 
 
 
+        var loadUserDetails=function() {
+                $.ajax({
+                     url: "/system/ucam/lookup?x=",
+                     type: "GET",
+                     success : function(data) {
+                            gn = "--??--";
+                            if ( data["local"]["firstName"] ) {
+                               gn = data["local"]["firstName"];
+                            } else if ( data["remote"]["gn"] ) {
+                               gn = data["remote"]["gn"];
+                            }
+                            $acceptterms_gn.val(gn);
+                            sn = "--??--";
+                            if ( data["local"]["lastName"] ) {
+                               sn = data["local"]["lastName"];
+                            } else if ( data["remote"]["sn"] ) {
+                               sn = data["remote"]["sn"];
+                            }
+                            $acceptterms_sn.val(sn);
+                     },
+                     error : function(status) {
+                            $acceptterms_gn.val("--??--");
+                            $acceptterms_sn.val("--??--");
+                     }
+                });
+        };
 
         ////////////////////
         // Initialisation //
@@ -124,6 +163,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
         var init = function(){
             if ( hasNotAcceptedTerms() ) {
                // This will make the widget popup as a layover.
+
                
                $acceptterms_dialog.jqm({
                   modal: true,
@@ -132,6 +172,7 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                   closeClass: "no-close-class"
                });
                addBinding();
+               loadUserDetails();
                $acceptterms_dialog.jqmShow();
             }
         };

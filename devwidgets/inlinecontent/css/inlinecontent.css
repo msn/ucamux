@@ -1,0 +1,51 @@
+/*
+ * Licensed to the Sakai Foundation (SF) under one
+ * or more contributor license agreements. See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership. The SF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ */
+
+/* Settings */
+#inlnecontent_settings input[type="text"]{background-color:#f1f1f1;border:1px solid #d6d6d6;margin-top:3px;padding:3px;width:99%;}
+.inlnecontent_settings_error{color:red;}
+.inlnecontent_settings_label_head{font-weight:bold;}
+#inlnecontent_settings_reset_size{margin-left:15px;}
+.inlnecontent_settings_subcontainer{border-bottom:1px solid #ddd;margin-bottom:15px;padding-bottom:10px;}
+.inlnecontent_settings_width_unit_selected{font-weight:bold;text-decoration:underline;}
+
+/* Preview */
+#inlnecontent_settings_preview{text-align:center;}
+#inlnecontent_settings_preview_frame{border-style:solid;margin-bottom:1px;}
+
+/* Color */
+#inlnecontent_settings_color_container{margin-top:9px;}
+.inlnecontent_settings_color{border:1px solid #eee;cursor:pointer;display:block;float:left;height:26px;margin-right:9px;text-decoration:none;width:26px;}
+.inlnecontent_settings_color:hover{border:1px solid #ccc;text-decoration:none;}
+.inlnecontent_settings_color_selected,.inlnecontent_settings_color_selected:hover{border:1px solid #000;}
+#inlnecontent_settings_color_000000{background-color:#000;}
+#inlnecontent_settings_color_cccccc{background-color:#ccc;}
+#inlnecontent_settings_color_ff0000{background-color:red;}
+#inlnecontent_settings_color_008000{background-color:green;}
+#inlnecontent_settings_color_0000ff{background-color:#00f;}
+
+/* Advanced */
+#inlnecontent_settings_advanced_toggle_settings{margin-top:-30px;float:right;}
+#inlnecontent_settings_advanced input[type="text"]{width:65px;}
+
+/* Block */
+.inlnecontent_settings_block{margin-left:15px;}
+.inlnecontent_settings_block label{float:left;margin-right:5px;margin-top:3px;padding-top:5px;width:75px;}
+.inlnecontent_settings_block .inlnecontent_settings_checkbox{float:left;margin:10px 20px 0 0;width:auto;}
+.inlnecontent_settings_block .inlnecontent_settings_checkbox label{float:none;width:auto;}
+.inlnecontent_settings_block .inlnecontent_settings_checkbox input[type="checkbox"]{margin:0 auto;}

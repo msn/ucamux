@@ -1,0 +1,21 @@
+{
+    "sakaidocs": false,
+    "ca":true,
+    "hasSettings": true,
+    "description":"Inline Content Widget",
+    "id":"inlinecontent",
+    "i18n": {
+        "default": "/devwidgets/inlinecontent/bundles/default.properties"
+    },
+    "img":"/devwidgets/inlinecontent/images/inlinecontent.png",
+    "name":"Inline Content",
+    "type":"sakai",
+    "enabled":true,
+    "url":"/devwidgets/inlinecontent/inlinecontent.html",
+    "userpages": true,
+    "userdashboard": true,
+    "grouppages": true,
+    "groupdashboard": true,
+    "showinsakaigoodies": true,
+    "sakaidocs": true
+}

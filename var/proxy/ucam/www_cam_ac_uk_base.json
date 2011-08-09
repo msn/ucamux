@@ -1,0 +1,13 @@
+{
+    "sling:resourceType": "sakai/proxy",
+    "sakai:request-proxy-endpoint": "http://www.cam.ac.uk/${q}",
+    "sakai:request-proxy-method": "GET",
+    "sakai:title": "Gets pages from the cam.ac.uk website",
+    "sakai:shortDescription": "Gets pages from the cam.ac.uk website",
+    "sakai:description": [
+        "This proxy will get pages from www.cam.ac.uk "
+     ],
+     "sakai:parameters" : [
+        "{\"name\" : \"q\", \"description\" : \"(Required) The URL inside www.cam.ac.uk\"}"
+    ]
+}

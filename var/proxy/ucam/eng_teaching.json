@@ -1,0 +1,13 @@
+{
+    "sling:resourceType": "sakai/proxy",
+    "sakai:request-proxy-endpoint": "http://www.eng.cam.ac.uk/teaching/courses/${y}/${c}.html",
+    "sakai:request-proxy-method": "GET",
+    "sakai:title": "Gets pages from the Engineering Teaching website",
+    "sakai:shortDescription": "Gets pages from the Engineering Teaching website",
+    "sakai:description": [
+        "Gets pages from the Engineering Teaching website "
+     ],
+     "sakai:parameters" : [
+        "{\"name\" : \"q\", \"description\" : \"(Required) The URL inside www.cam.ac.uk\"}"
+    ]
+}

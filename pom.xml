@@ -197,6 +197,7 @@
                 SLING-INF/content/devwidgets;path:=/devwidgets;ignoreImportProviders:="xml,json,html,jar,zip";uninstall:=false;overwrite:=true,
                 SLING-INF/content/var/templates/site;path:=/var/templates/site;uninstall:=false;overwrite:=true,
                 SLING-INF/content/var/templates/email;path:=/var/templates/email;uninstall:=false;overwrite:=true,
+                SLING-INF/content/var/proxy/ucam;path:=/var/proxy/ucam;uninstall:=false;overwrite:=true,
                 SLING-INF/content/var/ux-version;path:=/var/ux-version;uninstall:=false;overwriteProperties:=true;overwrite:=true,
                 SLING-INF/content/apps;path:=/apps;uninstall:=false;overwrite:=true,
                 ${dev.content}

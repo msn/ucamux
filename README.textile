@@ -2,4 +2,7 @@ h1. University of Cambridge UI Extensions to Sakai OAE.
 
 h2. Description
 
-With more time, I would write one, for the moment look arround.
+This project is used to overlay customisations to the OAE deployment here at
+the University of Cambridge. This allows us to add local functionality
+independently of the main code base and drop in and remove these changes with
+more control.

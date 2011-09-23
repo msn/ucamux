@@ -16,14 +16,14 @@
   <groupId>uk.ac.cam.caret.oae</groupId>
   <artifactId>uk.ac.cam.caret.oae.ucamux</artifactId>
   <packaging>bundle</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.0.1.vcam_ucam-ux</version>
   <name>UCam UX Loader</name>
   <description>Loads the UCam extensions to Sakai OAE</description>
-  <url>http://github.com/ieb/ucamux</url>
+  <url>http://github.com/caret/ucamux</url>
   <scm>
-    <connection>scm:git:git://github.com/ieb/ucamux.git</connection>
-    <developerConnection>scm:git:git://git@github.com/ieb/ucamux.git</developerConnection>
-    <url>http://github.com/ieb/ucamux/</url>
+    <connection>scm:git:git://github.com/caret/ucamux.git</connection>
+    <developerConnection>scm:git:git://git@github.com/caret/ucamux.git</developerConnection>
+    <url>http://github.com/caret/ucamux/</url>
   </scm>
   <distributionManagement>
         <downloadUrl>http://source.sakaiproject.org/maven2/</downloadUrl>

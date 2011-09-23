@@ -26,18 +26,18 @@
 require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function($, sakai, sakaiWidgetsAPI) {
 
     /**
-     * @name sakai_global.inlinecontent
+     * @name sakai_global.cued_syllabus
      *
-     * @class inlinecontent
+     * @class cued_syllabus
      *
      * @description
-     * Inline Content widget
+     * CUED Syllabus widget
      *
      * @version 0.0.1
      * @param {String} tuid Unique id of the widget
      * @param {Boolean} showSettings Show the settings of the widget or not
      */
-    sakai_global.inlinecontent = function(tuid, showSettings){
+    sakai_global.cued_syllabus = function(tuid, showSettings){
 
 
         /////////////////////////////
@@ -48,26 +48,26 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
         var json = false;
  
         // Links and labels
-        var inlinecontent = "#inlinecontent";
-        var inlinecontentSettings = inlinecontent + "_settings";
-        var inlinecontentSettingsCancel = inlinecontentSettings + "_cancel";
-        var inlinecontentSettingsInsert = inlinecontentSettings + "_insert"
-        var inlinecontentSettingsremoteurl = inlinecontentSettings + "_remoteurl";
-        var inlinecontentSettingsOption1 = inlinecontentSettings + "_option1";
-        var inlinecontentSettingsOption2 = inlinecontentSettings + "_option2";
-        var inlinecontentSettingsOption3 = inlinecontentSettings + "_option3";
+        var cued_syllabus = "#cued_syllabus";
+        var cued_syllabusSettings = cued_syllabus + "_settings";
+        var cued_syllabusSettingsCancel = cued_syllabusSettings + "_cancel";
+        var cued_syllabusSettingsInsert = cued_syllabusSettings + "_insert"
+        var cued_syllabusSettingsremoteurl = cued_syllabusSettings + "_remoteurl";
+        var cued_syllabusSettingsOption1 = cued_syllabusSettings + "_option1";
+        var cued_syllabusSettingsOption2 = cued_syllabusSettings + "_option2";
+        var cued_syllabusSettingsOption3 = cued_syllabusSettings + "_option3";
 
         // Containers
-        var inlinecontentMainContainer = inlinecontent + "_main_container";
-        var inlinecontentPreviewContainer = inlinecontent + "_settings_preview";
+        var cued_syllabusMainContainer = cued_syllabus + "_main_container";
+        var cued_syllabusPreviewContainer = cued_syllabus + "_settings_preview";
 
         // Classes
-        var inlinecontentSettingsWidthUnitClass = ".inlinecontent_settings_width_unit";
-        var inlinecontentSettingsWidthUnitSelectedClass = "inlinecontent_settings_width_unit_selected";
+        var cued_syllabusSettingsWidthUnitClass = ".cued_syllabus_settings_width_unit";
+        var cued_syllabusSettingsWidthUnitSelectedClass = "cued_syllabus_settings_width_unit_selected";
 
         // Templates
-        var $inlinecontentSettingsTemplate = $("#inlinecontent_settings_template", rootel);
-        var $inlinecontentPreviewErrorTemplate = $("#inlinecontent_preview_error_template", rootel);
+        var $cued_syllabusSettingsTemplate = $("#cued_syllabus_settings_template", rootel);
+        var $cued_syllabusPreviewErrorTemplate = $("#cued_syllabus_preview_error_template", rootel);
         
         var safeUrlREs = [
         	/http:\/\/www.cam.ac.uk(.*)/,
@@ -106,12 +106,12 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
 
 
         /**
-         * Render the html of the inlinecontentsettings
+         * Render the html of the cued_syllabussettings
          */
         var renderRemoteContentSettings = function(){
             if (json) {
             	json._MODIFIERS = null;
-                $(inlinecontentSettings,rootel).html(sakai.api.Util.TemplateRenderer($inlinecontentSettingsTemplate, json));
+                $(cued_syllabusSettings,rootel).html(sakai.api.Util.TemplateRenderer($cued_syllabusSettingsTemplate, json));
             }
         };
 
@@ -141,11 +141,11 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
                     url: json.saneurl,
                     success: function(data) {
                     	if ( preview ) {
-                        	$(inlinecontentPreviewContainer, rootel).html(sakai.api.Util.Security.saneHTML(extractContent(data)));
-                            $(inlinecontentPreviewContainer, rootel).show();                    		
+                        	$(cued_syllabusPreviewContainer, rootel).html(sakai.api.Util.Security.saneHTML(extractContent(data)));
+                            $(cued_syllabusPreviewContainer, rootel).show();                    		
                     	} else {
-                        	$(inlinecontentMainContainer, rootel).html(sakai.api.Util.Security.saneHTML(extractContent(data)));
-                            $(inlinecontentMainContainer, rootel).show();
+                        	$(cued_syllabusMainContainer, rootel).html(sakai.api.Util.Security.saneHTML(extractContent(data)));
+                            $(cued_syllabusMainContainer, rootel).show();
                     	}
 
                     },
@@ -154,8 +154,8 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
                     		var loadresult = {};
                     		loadresult.saneurl = json.saneurl;
                     		loadresult.cause = e;
-                        	$(inlinecontentPreviewContainer,rootel).html(sakai.api.Util.TemplateRenderer($inlinecontentPreviewErrorTemplate, loadresult));
-    	                    sakai.api.Util.notification.show("", sakai.api.i18n.Widgets.getValueForKey("inlinecontent", false, "ERROR_LOADING_CONTENT"),
+                        	$(cued_syllabusPreviewContainer,rootel).html(sakai.api.Util.TemplateRenderer($cued_syllabusPreviewErrorTemplate, loadresult));
+    	                    sakai.api.Util.notification.show("", sakai.api.i18n.Widgets.getValueForKey("cued_syllabus", false, "ERROR_LOADING_CONTENT"),
     	                            sakai.api.Util.notification.type.ERROR);
                     	} else{
                             displaySettings(null, false);                    		
@@ -166,7 +166,7 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
         };
 
         /**
-         * Save the inlinecontent to the jcr
+         * Save the cued_syllabus to the jcr
          */
         var saveRemoteContent = function(){
             var  saveContentAjax = function(json_data) {
@@ -177,18 +177,18 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
                     data: json_data,
                     success: function(data) { 
                         displayRemoteContent(json_data, false);
-                        sakai.api.Widgets.Container.informFinish(tuid, "inlinecontent");
+                        sakai.api.Widgets.Container.informFinish(tuid, "cued_syllabus");
                     }
                 }); 
             };
 
             if (json.saneurl !== "") {
-                json["sling:resourceType"] = "sakai/inlinecontent";
+                json["sling:resourceType"] = "sakai/cued_syllabus";
                 json._MODIFIERS = null; // trimpath garbage - probably need a more selective way of saving data
                 saveContentAjax(json);
             }
             else {
-                sakai.api.Util.notification.show("", sakai.api.i18n.Widgets.getValueForKey("inlinecontent", false, "PLEASE_SPECIFY_A_URL"),
+                sakai.api.Util.notification.show("", sakai.api.i18n.Widgets.getValueForKey("cued_syllabus", false, "PLEASE_SPECIFY_A_URL"),
                                                  sakai.api.Util.notification.type.ERROR);
             }
         };
@@ -204,15 +204,15 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
         var addBinding = function(){
 
             // Change the url for the iFrame
-        	if ( $(inlinecontentSettingsremoteurl,rootel).length ) {
-	            $(inlinecontentSettingsremoteurl,rootel).change(function(){
+        	if ( $(cued_syllabusSettingsremoteurl,rootel).length ) {
+	            $(cued_syllabusSettingsremoteurl,rootel).change(function(){
 	            	json.remoteurl = $(this).val();
 	                var urlValue = getSaneUrl(json.remoteurl);
 	                if (urlValue !== "") {	
 	                    json.saneurl = urlValue;
 	                } else {
 	                	json.saneurl = ""
-	                    sakai.api.Util.notification.show("", sakai.api.i18n.Widgets.getValueForKey("inlinecontent", false, "PLEASE_SPECIFY_A_URL"),
+	                    sakai.api.Util.notification.show("", sakai.api.i18n.Widgets.getValueForKey("cued_syllabus", false, "PLEASE_SPECIFY_A_URL"),
 	                            sakai.api.Util.notification.type.ERROR);
 	                }
 	            });
@@ -220,63 +220,63 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
         	
         	
         	
-        	if ( $(inlinecontentSettingsOption1,rootel).length && 
-        			$(inlinecontentSettingsOption2,rootel).length && 
-        			    $(inlinecontentSettingsOption3,rootel).length ) {
-                $(inlinecontentSettingsOption1,rootel).change(function(){                
+        	if ( $(cued_syllabusSettingsOption1,rootel).length && 
+        			$(cued_syllabusSettingsOption2,rootel).length && 
+        			    $(cued_syllabusSettingsOption3,rootel).length ) {
+                $(cued_syllabusSettingsOption1,rootel).change(function(){                
                 	json.option1 = $(this).val();
                 	json.option2 = "";
                 	json.option3 = "";
                 	json.saneurl = "";
-                    var template = $("#inlinecontent_settings_option2_"+json.option1+"_template", rootel);
+                    var template = $("#cued_syllabus_settings_option2_"+json.option1+"_template", rootel);
                     if ( template.length ) {
-                    	$(inlinecontentSettingsOption2,rootel).html(sakai.api.Util.TemplateRenderer(template, json));
-                    	$(inlinecontentSettingsOption3,rootel).html("");            
+                    	$(cued_syllabusSettingsOption2,rootel).html(sakai.api.Util.TemplateRenderer(template, json));
+                    	$(cued_syllabusSettingsOption3,rootel).html("");            
                     } else {
                     	json.saneurl = $(this).val();
-                    	$(inlinecontentSettingsOption3,rootel).html("");
+                    	$(cued_syllabusSettingsOption3,rootel).html("");
                         displayRemoteContent(json, true);
                     }
                 });
-                $(inlinecontentSettingsOption2,rootel).change(function(){
+                $(cued_syllabusSettingsOption2,rootel).change(function(){
                   	json.option2 = $(this).val();
                 	json.option3 = "";
                 	json.saneurl = "";
-                    var template = $("#inlinecontent_settings_option3_"+json.option2+"_"+json.option1+"_template", rootel);
+                    var template = $("#cued_syllabus_settings_option3_"+json.option2+"_"+json.option1+"_template", rootel);
                     if ( template.length ) {
-                        alert("Template 3 is "+template+" "+template.length+" "+"#inlinecontent_settings_option3_"+json.option2+"_"+json.option1+"_template"+document.getElementById("inlinecontent_settings_option3_"+json.option2+"_"+json.option1+"_template"));
-                    	$(inlinecontentSettingsOption3,rootel).html(sakai.api.Util.TemplateRenderer(template, json));                    	
+                        alert("Template 3 is "+template+" "+template.length+" "+"#cued_syllabus_settings_option3_"+json.option2+"_"+json.option1+"_template"+document.getElementById("cued_syllabus_settings_option3_"+json.option2+"_"+json.option1+"_template"));
+                    	$(cued_syllabusSettingsOption3,rootel).html(sakai.api.Util.TemplateRenderer(template, json));                    	
                     } else {
                     	json.saneurl = $(this).val();                    	
                         displayRemoteContent(json, true);
                     }
                 });
-                $(inlinecontentSettingsOption3).change(function(){
+                $(cued_syllabusSettingsOption3).change(function(){
                   	json.option3 = $(this).val();
                     json.saneurl = $(this).val();
                     displayRemoteContent(json, true);
                 });
-        	} else if ( $(inlinecontentSettingsOption1,rootel).length 
-        			&& $(inlinecontentSettingsOption2,rootel).length  ) {
-                $(inlinecontentSettingsOption1,rootel).change(function(){                
+        	} else if ( $(cued_syllabusSettingsOption1,rootel).length 
+        			&& $(cued_syllabusSettingsOption2,rootel).length  ) {
+                $(cued_syllabusSettingsOption1,rootel).change(function(){                
                 	json.option1 = $(this).val();
                 	json.option2 = "";
                 	json.saneurl = "";
-                    var template = $("#inlinecontent_settings_option2_"+json.option1+"_template", rootel);
+                    var template = $("#cued_syllabus_settings_option2_"+json.option1+"_template", rootel);
                     if ( template.length ) {
-                    	$(inlinecontentSettingsOption2,rootel).html(sakai.api.Util.TemplateRenderer(template, json));
+                    	$(cued_syllabusSettingsOption2,rootel).html(sakai.api.Util.TemplateRenderer(template, json));
                     } else {
                     	json.saneurl = $(this).val();
                         displayRemoteContent(json, true);
                     }
                 });
-                $(inlinecontentSettingsOption2,rootel).change(function(){
+                $(cued_syllabusSettingsOption2,rootel).change(function(){
                   	json.option2 = $(this).val();
                 	json.saneurl = $(this).val();
                     displayRemoteContent(json, true);
                 });
-        	} else if ( $(inlinecontentSettingsOption1,rootel).length ) {
-                $(inlinecontentSettingsOption1,rootel).change(function(){                
+        	} else if ( $(cued_syllabusSettingsOption1,rootel).length ) {
+                $(cued_syllabusSettingsOption1,rootel).change(function(){                
                 	json.option1 = $(this).val();
                 	json.saneurl = $(this).val();
                     displayRemoteContent(json, true);
@@ -285,13 +285,13 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
 
 
             // When you push the save button..
-            $(inlinecontentSettingsInsert,rootel).click(function(){
+            $(cued_syllabusSettingsInsert,rootel).click(function(){
                 saveRemoteContent();
             });
 
             // Cancel it
-            $(inlinecontentSettingsCancel,rootel).click(function(){
-                sakai.api.Widgets.Container.informCancel(tuid, "inlinecontent");
+            $(cued_syllabusSettingsCancel,rootel).click(function(){
+                sakai.api.Widgets.Container.informCancel(tuid, "cued_syllabus");
             });
 
         };
@@ -304,7 +304,7 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
         /**
          * Function that fills in the input fields in the settings tab.
          * @param {Object} parameters A JSON object that contains the necessary information.
-         * @param {Boolean} exists Does there exist a previous inlinecontent
+         * @param {Boolean} exists Does there exist a previous cued_syllabus
          */
         var displaySettings = function(parameters, exists){
             if (exists && (parameters.remoteurl || parameters.option1)) {
@@ -318,19 +318,19 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
             }
             renderRemoteContentSettings();
             addBinding(); // Add binding to the various elements
-            $(inlinecontentSettings,rootel).show(); // Show the inlinecontent settings
+            $(cued_syllabusSettings,rootel).show(); // Show the cued_syllabus settings
         };
 
         /*
          * Is the widget in settings mode or not
          */
         if (showSettings) {
-            $(inlinecontentMainContainer,rootel).hide();
-            $(inlinecontentSettings,rootel).show();
+            $(cued_syllabusMainContainer,rootel).hide();
+            $(cued_syllabusSettings,rootel).show();
         }
         else {
-            $(inlinecontentSettings,rootel).hide();
-            $(inlinecontentMainContainer,rootel).show();
+            $(cued_syllabusSettings,rootel).hide();
+            $(cued_syllabusMainContainer,rootel).show();
         }
 
         /**
@@ -364,5 +364,5 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
         getRemoteContent(showSettings);
     };
 
-    sakai.api.Widgets.widgetLoader.informOnLoad("inlinecontent");
+    sakai.api.Widgets.widgetLoader.informOnLoad("cued_syllabus");
 });

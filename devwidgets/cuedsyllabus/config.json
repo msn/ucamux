@@ -3,15 +3,15 @@
     "ca":true,
     "hasSettings": true,
     "description":"CUED Syllabus Widget",
-    "id":"cued_syllabus",
+    "id":"cuedsyllabus",
     "i18n": {
-        "default": "/devwidgets/cued_syllabus/bundles/default.properties"
+        "default": "/devwidgets/cuedsyllabus/bundles/default.properties"
     },
-    "img":"/devwidgets/cued_syllabus/images/cued_syllabus.png",
+    "img":"/devwidgets/cuedsyllabus/images/cuedsyllabus.png",
     "name":"CUED Syllabus",
     "type":"sakai",
     "enabled":true,
-    "url":"/devwidgets/cued_syllabus/cued_syllabus.html",
+    "url":"/devwidgets/cuedsyllabus/cuedsyllabus.html",
     "userpages": true,
     "userdashboard": true,
     "grouppages": true,

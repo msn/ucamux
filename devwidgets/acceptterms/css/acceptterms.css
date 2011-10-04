@@ -19,4 +19,4 @@
 .acceptterms_label {float:left;width:150px;}
 .acceptterms_input {width:100px;float:left;}
 .acceptterms_buttons{clear:both;float:right;margin-top:12px;}
-.acceptterms_termscontainer {max-height:100px;scroll:auto;margin:13px 0;}
+.acceptterms_termscontainer {border:1px solid #aaa;margin:13px 0;max-height:200px;overflow-x:hidden;overflow-y:scroll;padding:5px;}

@@ -16,7 +16,7 @@ if [ "${BUILD_STEP}" = "pre" ] ; then
 else
     if [ "${BUILD_STEP}" = "post" ] ; then
         echo "INFO: Running post build setup for version: ${VERSION}";
-        NAME="uk/ac/cam/caret/oae/uk.ac.cam.caret.oae.ucamux"
+        NAME="uk/ac/cam/caret/oae/uk.ac.cam.caret.oae.ucam-ux"
         URL="maven2.caret.cam.ac.uk"
         echo "INFO: Making directory /var/www/${URL}/htdocs/${NAME}/${VERSION} on ${URL}";
         ssh ${URL} "mkdir -p /var/www/${URL}/htdocs/${NAME}/${VERSION}";

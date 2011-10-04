@@ -1,0 +1,89 @@
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="/devwidgets/acceptterms/css/acceptterms.css"/>
+
+<!-- ERROR MESSAGES -->
+<div style="display:none">
+    <div id="acceptterms_accepted">__MSG__TERMS_ACCEPTED__.</div>
+    <div id="acceptterms_not_accepted">__MSG__TERMS_NOT_ACCEPTEDD__.</div>
+</div>
+
+<!-- DIALOG -->
+<div class="s3d-dialog s3d-dialog-container" id="acceptterms_dialog">
+    <h1 class="s3d-dialog-header">__MSG__ACCEPT_TERMSTITLE__</h1>
+    <form id="acceptterms_form" method="post" action="#">
+        <h4>__MSG__PLEASE_ACCEPT_TERMS_AND_CONDITIONS__</h4>
+        <div class="acceptterms_termscontainer">
+<h5>Draft Terms and Conditions</h5>
+
+<p>Academic Collaboration Environment is a service provided by the University of
+Cambridge, using the Cambridge University Data Network (CUDN) and JANET, and
+its use is governed by the following university-wide policies:</p>
+
+<p>
+<ul>
+<li><a href="http://www.cam.ac.uk/cs/isss/rules/">Rules and Guidelines of the ISSS</a></li>
+<li><a href="http://www.admin.cam.ac.uk/offices/hr/policy/computer.html">Acceptable use of computer facilities, email and the internet</a></li>
+<li><a href="http://www.cam.ac.uk/cs/network/rules/">Rules governing use of the CUDN</a></li>
+<li><a href="http://www.ja.net/company/policies/aup.html">JANET acceptable use policy</a></li>
+</ul>
+</p>
+
+<p>By using Academic Collaboration Environment you agree to abide by the rules set
+out by the University of Cambridge and JANET.</p>
+
+<h6> Privacy defaults in the Academic Collaboration Environment</h6>
+
+<p>Your user ID (CRSID for University of Cambridge users), first name and last
+name comprise your Basic Profile Information in the Academic Collaboration
+Environment.  Because the Academic Collaboration Environment is intended to
+enable collaboration and engagement outside as well as inside the University,
+Basic Profile Information is visible to anyone visiting the website, not just
+logged in users or members of the University.</p>
+
+<p>University of Cambridge users logging in to the Academic Collaboration
+Environment via Raven will on first login be given the option to import their
+first name and last name automatically from the University Lookup Directory.
+You may opt out of this by making the appropriate selection.  Not including
+your name in your Basic Profile Information will prevent anyone visiting the
+Academic Collaboration Environment website from finding you by searching on
+your name.  You will be discoverable only by your CRSID.  Conversely, including
+your name means that if someone searches for your name, they will also be able
+to see your CRSID.</p>
+
+<p>Non-University of Cambridge users (“Friends”) are required to give their name.</p>
+
+<p>By default, files you upload, groups you belong to, and profile information
+that you provide will be visible to anyone with an Academic Collaboration
+Environment account. These accounts will be available to members of the
+university and invited external members. This means that unless you
+deliberately change who can see a given piece of information, the information
+will be visible to Academic Collaboration Environment account holders.  When
+you become a member of a public group or site, or participate in one, you
+should be aware that you are acting in the public domain.</p>
+
+<p>Please also see our associated <a href="/privacy.html">Privacy Policy</a></p>
+
+<p>If you are concerned about these terms and conditions, please contact
+helpdesk@caret.cam.ac.uk.</p>
+
+<h6>Adjustments to these Terms and Conditions</h6>
+
+<p>Any changes to these Terms and Conditions will be notified to users by
+appropriate means.</p>
+        </div>
+        <div id="acceptterms_error_container" style="display:none;"><!-- --></div>
+          <div class="signup_form_column_labels">
+            <label class="firstName acceptterms_label" for="gn">__MSG__GIVEN_NAME__:</label>
+			<input type="text" class="acceptterms_input required" id="acceptterms_gn" name="gn" maxlength="255">             
+			<hr class="fl-push fl-hidden">
+			<label for="sn" class="lastName acceptterms_label">__MSG__LAST_NAME__:</label> 
+            <input type="text" class="acceptterms_input required" id="acceptterms_sn" name="sn" maxlength="255">
+          </div>
+        <div class="acceptterms_buttons">
+            <button type="button" class="s3d-button s3d-large-button" id="acceptterms_action_accept">__MSG__ACCEPT_TERMS__</button>
+        </div>
+    </form>
+</div>
+
+<!-- JAVASCRIPT -->
+<script type="text/javascript" src="/devwidgets/acceptterms/javascript/acceptterms.js"></script>

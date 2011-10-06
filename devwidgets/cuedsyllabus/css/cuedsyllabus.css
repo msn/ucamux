@@ -25,7 +25,7 @@
 .cuedsyllabus_settings_width_unit_selected{font-weight:bold;text-decoration:underline;}
 
 /* Preview */
-#cuedsyllabus_settings_preview{text-align:center;}
+#cuedsyllabus_settings_preview{text-align:inherit;}
 #cuedsyllabus_settings_preview_frame{border-style:solid;margin-bottom:1px;}
 
 /* Color */

@@ -16,7 +16,7 @@
   <groupId>uk.ac.cam.caret.oae</groupId>
   <artifactId>uk.ac.cam.caret.oae.ucam-ux</artifactId>
   <packaging>bundle</packaging>
-  <version>0.0.5.vcam_ucam-ux</version>
+  <version>0.0.6.vcam_ucam-ux</version>
   <name>UCam UX Loader</name>
   <description>Loads the UCam extensions to Sakai OAE</description>
   <url>http://github.com/caret/ucamux</url>

@@ -99,6 +99,9 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                      success : function(data) {
                             sakai.api.Util.notification.show($acceptterms_accepted.html(),
                                 sakai.api.i18n.Widgets.getValueForKey("acceptterms","","TERMS_ACCEPTED"));
+                            if( changedUserData == "updated" ) {
+                                location.reload();
+                            }
                      },
                      error : function(status) {
                             sakai.api.Util.notification.show($acceptterms_not_accepted.html(),
@@ -106,9 +109,6 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                      }
                 });
                 $acceptterms_dialog.jqmHide();
-                if( changedUserData == "updated" ) {
-                    location.reload();
-                }
                 return false;
             });
         };

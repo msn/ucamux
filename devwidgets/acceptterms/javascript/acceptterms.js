@@ -106,6 +106,9 @@ require(["jquery", "sakai/sakai.api.core"], function($, sakai) {
                      }
                 });
                 $acceptterms_dialog.jqmHide();
+                if( changedUserData == "updated" ) {
+                    location.reload();
+                }
                 return false;
             });
         };

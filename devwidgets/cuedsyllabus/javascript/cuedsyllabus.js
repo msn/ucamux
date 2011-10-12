@@ -116,7 +116,17 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
         var renderRemoteContentSettings = function(){
             if (json) {
             	json._MODIFIERS = null;
-                $(cuedsyllabusSettings,rootel).html(sakai.api.Util.TemplateRenderer($cuedsyllabusSettingsTemplate, json));
+              $(cuedsyllabusSettings,rootel).html(sakai.api.Util.TemplateRenderer($cuedsyllabusSettingsTemplate, json));
+              var template = $("#cuedsyllabus_settings_option2_"+json.option1+"_template", rootel);
+              $(cuedsyllabusSettingsOption2,rootel).html(sakai.api.Util.TemplateRenderer(template, json));
+              // Select the year in the drop down that was previously chosen:
+              $("#cuedsyllabus_settings_option1_" + json.option1).attr("selected", "selected");
+              // Extract the class code:
+              var selectValue = json.option2;
+              var equalsPosition = selectValue.lastIndexOf("=") + 1;
+              var classCode = selectValue.slice( equalsPosition );
+              // Select the course (class) in the drop down that was previously chosen:
+              $("#cuedsyllabus_settings_option2_" + json.option1 + "_" + classCode).attr("selected", "selected");
             }
         };
 
@@ -325,7 +335,8 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
             }
             renderRemoteContentSettings();
             addBinding(); // Add binding to the various elements
-            $(cuedsyllabusSettings,rootel).show(); // Show the cuedsyllabus settings
+            $(cuedsyllabusSettingsOption2,rootel).show(); // Show the cuedsyllabus settings
+            displayRemoteContent(json, true); // Render the currently selected page
         };
 
         /*

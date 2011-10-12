@@ -81,6 +81,11 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
                 /<!-- end group breadcrumb -->(.|\n|\r)*?<\/body>/m
         ];
 
+        var defaultUrl = "/var/proxy/ucam/eng_teaching?y=" +
+            sakai.api.i18n.Widgets.getValueForKey("cuedsyllabus", false, "DEFAULT_YEAR") + "&c=" +
+            sakai.api.i18n.Widgets.getValueForKey("cuedsyllabus", false, "DEFAULT_CLASS");
+                        
+
         ///////////////////////
         // Utility functions //
         ///////////////////////
@@ -312,8 +317,10 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
             }
             else { // use default values
                 json = {
+                    saneurl: defaultUrl,
                     remoteurl: "",
-                    saneurl: ""
+                    option1: sakai.api.i18n.Widgets.getValueForKey("cuedsyllabus", false, "DEFAULT_YEAR"),
+                    option2: defaultUrl
                 };
             }
             renderRemoteContentSettings();
@@ -356,7 +363,15 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
                     } 
                 },
                 error: function(xhr, status, e) {
-                    displaySettings(null, false);
+                    // No values have been set for the widget at all, so set them
+                    // to the default values:
+                    json = {
+                        saneurl: defaultUrl,
+                        remoteurl: "",
+                        option1: sakai.api.i18n.Widgets.getValueForKey("cuedsyllabus", false, "DEFAULT_YEAR"),
+                        option2: defaultUrl
+                    };
+                    saveRemoteContent();
                 }
             });
         };

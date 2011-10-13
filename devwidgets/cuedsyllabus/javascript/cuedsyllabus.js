@@ -157,9 +157,21 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
                     success: function(data) {
                     	if ( preview ) {
                         	$(cuedsyllabusPreviewContainer, rootel).html(sakai.api.Util.Security.saneHTML(extractContent(data)));
+                          // Strip out a tags and replace with their text except for mailto:
+                          $(cuedsyllabusPreviewContainer, rootel).find("a").each(function() {
+                              if($(this).attr("href").indexOf("mailto:") != 0){
+                                  $(this).replaceWith($(this).text());
+                              }
+                          });
                             $(cuedsyllabusPreviewContainer, rootel).show();                    		
                     	} else {
                         	$(cuedsyllabusMainContainer, rootel).html(sakai.api.Util.Security.saneHTML(extractContent(data)));
+                          // Strip out a tags and replace with their text except for mailto:
+                          $(cuedsyllabusMainContainer, rootel).find("a").each(function() {
+                              if($(this).attr("href").indexOf("mailto:") != 0){
+                                  $(this).replaceWith($(this).text());
+                              }
+                          });
                             $(cuedsyllabusMainContainer, rootel).show();
                     	}
 

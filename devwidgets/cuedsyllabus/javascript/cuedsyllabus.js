@@ -130,12 +130,6 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
             }
         };
 
-        var filterLinks = function(){
-            $("a").each(function() {
-                $($(this).parent()).html($(this).text());
-            });
-        };
-
         var extractContent = function(content){
         	for ( var i = 0; i < cleanContentREs.length; i++) {
         		var match = cleanContentREs[i].exec(content);

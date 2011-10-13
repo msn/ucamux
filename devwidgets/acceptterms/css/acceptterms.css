@@ -20,3 +20,4 @@
 .acceptterms_input {width:100px;float:left;}
 .acceptterms_buttons{clear:both;float:right;margin-top:12px;}
 .acceptterms_termscontainer {border:1px solid #aaa;margin:13px 0;max-height:200px;overflow-x:hidden;overflow-y:scroll;padding:5px;}
+.acceptterms_cancel {margin-right:12px;}

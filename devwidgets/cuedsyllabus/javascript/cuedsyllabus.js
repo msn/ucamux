@@ -386,15 +386,22 @@ require(["jquery", "sakai/sakai.api.core", "sakai/sakai.api.widgets"], function(
                     } 
                 },
                 error: function(xhr, status, e) {
-                    // No values have been set for the widget at all, so set them
-                    // to the default values:
-                    json = {
-                        saneurl: defaultUrl,
-                        remoteurl: "",
-                        option1: sakai.api.i18n.Widgets.getValueForKey("cuedsyllabus", false, "DEFAULT_YEAR"),
-                        option2: defaultUrl
-                    };
-                    saveRemoteContent();
+                    if (showSettings) {
+                        // No values have been set for the widget at all, but we're
+                        // in show settings mode so time to edit them:
+                        displaySettings(null, false);
+                    }
+                    else {
+                        // No values have been set for the widget at all and we are
+                        // not about to edit, so set them to the default values:
+                        json = {
+                            saneurl: defaultUrl,
+                            remoteurl: "",
+                            option1: sakai.api.i18n.Widgets.getValueForKey("cuedsyllabus", false, "DEFAULT_YEAR"),
+                            option2: defaultUrl
+                        };
+                        saveRemoteContent();
+                    }
                 }
             });
         };
